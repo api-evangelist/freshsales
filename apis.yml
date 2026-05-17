@@ -47,7 +47,7 @@ common:
     url: https://developers.freshworks.com/crm/api/
   - type: Documentation
     url: https://developers.freshworks.com/crm/api/
-  - type: Sign Up
+  - type: SignUp
     url: https://www.freshworks.com/crm/sales/signup/
   - type: Pricing
     url: https://www.freshworks.com/crm/sales/pricing/

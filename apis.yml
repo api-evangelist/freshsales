@@ -41,6 +41,10 @@ apis:
       - type: Documentation
         url: https://developers.freshworks.com/crm/api/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/freshworks
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/freshsales-crm
   - type: Website
     url: https://www.freshworks.com/crm/sales/
   - type: Developer Portal

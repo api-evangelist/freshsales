@@ -1,0 +1,440 @@
+openapi: 3.1.0
+info:
+  title: Freshsales CRM API
+  version: "2026-05-23"
+  description: |
+    Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)
+    REST API. Generated from public documentation; not an official spec.
+  contact:
+    name: Freshworks CRM Developer Portal
+    url: https://developers.freshworks.com/crm/api/
+servers:
+  - url: https://{bundleAlias}.myfreshworks.com/crm/sales/api
+    description: Bundle-alias scoped base URL
+    variables:
+      bundleAlias:
+        default: example
+        description: Customer bundle alias (subdomain)
+security:
+  - tokenAuth: []
+tags:
+  - name: Contacts
+  - name: SalesAccounts
+  - name: Deals
+  - name: Tasks
+  - name: Appointments
+  - name: Notes
+  - name: Lists
+  - name: Products
+  - name: SalesActivities
+  - name: Search
+  - name: Calls
+  - name: Jobs
+paths:
+  /contacts:
+    post:
+      tags: [Contacts]
+      operationId: createContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /contacts/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Contacts]
+      operationId: getContact
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [Contacts]
+      operationId: updateContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [Contacts]
+      operationId: deleteContact
+      responses:
+        "204": { description: No Content }
+  /contacts/view/{view_id}:
+    parameters:
+      - in: path
+        name: view_id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Contacts]
+      operationId: listContactsByView
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /contacts/upsert:
+    post:
+      tags: [Contacts]
+      operationId: upsertContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /contacts/bulk_upsert:
+    post:
+      tags: [Contacts]
+      operationId: bulkUpsertContacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "202": { $ref: "#/components/responses/Ok" }
+  /contacts/bulk_destroy:
+    post:
+      tags: [Contacts]
+      operationId: bulkDestroyContacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "202": { $ref: "#/components/responses/Ok" }
+  /contacts/{id}/activities:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Contacts]
+      operationId: listContactActivities
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /sales_accounts:
+    post:
+      tags: [SalesAccounts]
+      operationId: createSalesAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /sales_accounts/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [SalesAccounts]
+      operationId: getSalesAccount
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [SalesAccounts]
+      operationId: updateSalesAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [SalesAccounts]
+      operationId: deleteSalesAccount
+      responses:
+        "204": { description: No Content }
+  /sales_accounts/view/{view_id}:
+    parameters:
+      - in: path
+        name: view_id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [SalesAccounts]
+      operationId: listSalesAccountsByView
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /deals:
+    post:
+      tags: [Deals]
+      operationId: createDeal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /deals/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Deals]
+      operationId: getDeal
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [Deals]
+      operationId: updateDeal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [Deals]
+      operationId: deleteDeal
+      responses:
+        "204": { description: No Content }
+  /deals/view/{view_id}:
+    parameters:
+      - in: path
+        name: view_id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Deals]
+      operationId: listDealsByView
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /tasks:
+    get:
+      tags: [Tasks]
+      operationId: listTasks
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    post:
+      tags: [Tasks]
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /tasks/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Tasks]
+      operationId: getTask
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [Tasks]
+      operationId: updateTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [Tasks]
+      operationId: deleteTask
+      responses:
+        "204": { description: No Content }
+  /appointments:
+    get:
+      tags: [Appointments]
+      operationId: listAppointments
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    post:
+      tags: [Appointments]
+      operationId: createAppointment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /appointments/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Appointments]
+      operationId: getAppointment
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [Appointments]
+      operationId: updateAppointment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [Appointments]
+      operationId: deleteAppointment
+      responses:
+        "204": { description: No Content }
+  /notes:
+    post:
+      tags: [Notes]
+      operationId: createNote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /notes/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    put:
+      tags: [Notes]
+      operationId: updateNote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    delete:
+      tags: [Notes]
+      operationId: deleteNote
+      responses:
+        "204": { description: No Content }
+  /lists:
+    get:
+      tags: [Lists]
+      operationId: listLists
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    post:
+      tags: [Lists]
+      operationId: createList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /lists/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    put:
+      tags: [Lists]
+      operationId: updateList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /cpq/products:
+    post:
+      tags: [Products]
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /cpq/products/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Products]
+      operationId: getProduct
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+    put:
+      tags: [Products]
+      operationId: updateProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /sales_activities:
+    post:
+      tags: [SalesActivities]
+      operationId: createSalesActivity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /search:
+    get:
+      tags: [Search]
+      operationId: search
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /phone_calls:
+    post:
+      tags: [Calls]
+      operationId: logPhoneCall
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "201": { $ref: "#/components/responses/Ok" }
+  /job_statuses/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      tags: [Jobs]
+      operationId: getJobStatus
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+components:
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema: { type: string }
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Token-based authentication header in the form
+        "Authorization: Token token=YOUR_API_KEY".
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Object" }

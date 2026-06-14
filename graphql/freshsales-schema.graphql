@@ -1,0 +1,964 @@
+"""
+Freshsales CRM GraphQL Schema
+Provider: Freshsales (Freshworks)
+REST API: https://developers.freshworks.com/crm/api/
+GitHub: https://github.com/freshworks
+"""
+
+scalar DateTime
+scalar JSON
+
+# ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum DealStageType {
+  OPEN
+  WON
+  LOST
+}
+
+enum ActivityType {
+  TASK
+  APPOINTMENT
+  CALL
+  EMAIL
+  NOTE
+  MEETING
+}
+
+enum LeadStatus {
+  NEW
+  ATTEMPTED
+  OPEN
+  UNQUALIFIED
+  JUNK
+  CONVERTED
+}
+
+enum DealStatus {
+  OPEN
+  WON
+  LOST
+}
+
+enum TaskStatus {
+  OPEN
+  COMPLETED
+  CANCELLED
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CANCELLED
+  COMPLETED
+}
+
+enum CallDirection {
+  INBOUND
+  OUTBOUND
+}
+
+enum EmailDirection {
+  INBOUND
+  OUTBOUND
+}
+
+enum CampaignStatus {
+  DRAFT
+  SCHEDULED
+  ACTIVE
+  PAUSED
+  COMPLETED
+}
+
+enum SequenceStatus {
+  ACTIVE
+  PAUSED
+  DRAFT
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+enum OrderStatus {
+  DRAFT
+  CONFIRMED
+  FULFILLED
+  CANCELLED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum TokenType {
+  API_KEY
+  OAUTH
+}
+
+# ─── Core CRM Objects ────────────────────────────────────────────────────────
+
+type Contact {
+  id: ID!
+  firstName: String
+  lastName: String
+  displayName: String
+  jobTitle: String
+  department: String
+  company: Company
+  phones: [ContactPhone!]
+  emails: [ContactEmail!]
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  website: String
+  linkedIn: String
+  twitter: String
+  score: ContactScore
+  owner: Owner
+  territory: Territory
+  tags: [String!]
+  lists: [List!]
+  segments: [Segment!]
+  deals: [Deal!]
+  notes: [Note!]
+  tasks: [Task!]
+  appointments: [Appointment!]
+  activities: [Activity!]
+  documents: [Document!]
+  customFields: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ContactPhone {
+  id: ID!
+  contact: Contact!
+  number: String!
+  label: String
+  isPrimary: Boolean!
+}
+
+type ContactEmail {
+  id: ID!
+  contact: Contact!
+  address: String!
+  label: String
+  isPrimary: Boolean!
+  bounced: Boolean
+}
+
+type Company {
+  id: ID!
+  name: String!
+  domain: String
+  industry: String
+  numberOfEmployees: Int
+  annualRevenue: Float
+  phone: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  website: String
+  linkedIn: String
+  twitter: String
+  description: String
+  owner: Owner
+  territory: Territory
+  tags: [String!]
+  contacts: [SalesAccountContact!]
+  deals: [Deal!]
+  notes: [Note!]
+  tasks: [Task!]
+  documents: [Document!]
+  customFields: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SalesAccountContact {
+  id: ID!
+  salesAccount: Company!
+  contact: Contact!
+  isPrimary: Boolean!
+}
+
+type Lead {
+  id: ID!
+  firstName: String
+  lastName: String
+  displayName: String
+  email: String
+  phone: String
+  company: String
+  jobTitle: String
+  status: LeadStatus!
+  source: String
+  score: LeadScore
+  owner: Owner
+  territory: Territory
+  tags: [String!]
+  customFields: JSON
+  convertedAt: DateTime
+  conversion: LeadConversion
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type LeadConversion {
+  id: ID!
+  lead: Lead!
+  contact: Contact
+  company: Company
+  deal: Deal
+  convertedAt: DateTime!
+  convertedBy: User!
+}
+
+# ─── Pipeline and Deals ──────────────────────────────────────────────────────
+
+type Pipeline {
+  id: ID!
+  name: String!
+  description: String
+  stages: [DealStage!]!
+  deals: [Deal!]
+  isDefault: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DealStage {
+  id: ID!
+  pipeline: Pipeline!
+  name: String!
+  probability: Float
+  stageType: DealStageType!
+  position: Int!
+  rottenDays: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Deal {
+  id: ID!
+  name: String!
+  amount: Float
+  currency: String
+  closedDate: DateTime
+  stage: DealStage!
+  pipeline: Pipeline!
+  status: DealStatus!
+  probability: Float
+  contact: Contact
+  company: Company
+  owner: Owner
+  territory: Territory
+  products: [DealProduct!]
+  notes: [Note!]
+  tasks: [Task!]
+  appointments: [Appointment!]
+  activities: [Activity!]
+  documents: [Document!]
+  tags: [String!]
+  customFields: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DealProduct {
+  id: ID!
+  deal: Deal!
+  product: Product!
+  quantity: Float!
+  unitPrice: Float!
+  discount: Float
+  total: Float!
+}
+
+# ─── Activities ──────────────────────────────────────────────────────────────
+
+type Activity {
+  id: ID!
+  type: ActivityType!
+  subject: String
+  description: String
+  contact: Contact
+  company: Company
+  deal: Deal
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Task {
+  id: ID!
+  title: String!
+  description: String
+  dueDate: DateTime
+  status: TaskStatus!
+  priority: String
+  contact: Contact
+  company: Company
+  deal: Deal
+  owner: Owner
+  outcome: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Appointment {
+  id: ID!
+  title: String!
+  description: String
+  startDate: DateTime!
+  endDate: DateTime!
+  location: String
+  status: AppointmentStatus!
+  contact: Contact
+  company: Company
+  deal: Deal
+  owner: Owner
+  attendees: [User!]
+  outcome: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Meeting {
+  id: ID!
+  title: String!
+  description: String
+  startDate: DateTime!
+  endDate: DateTime!
+  conferenceLink: String
+  contact: Contact
+  company: Company
+  deal: Deal
+  host: User!
+  attendees: [User!]
+  recordingUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Call {
+  id: ID!
+  direction: CallDirection!
+  duration: Int
+  recordingUrl: String
+  outcome: String
+  notes: String
+  contact: Contact
+  company: Company
+  deal: Deal
+  user: User!
+  phoneNumber: String
+  calledAt: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Note {
+  id: ID!
+  description: String!
+  contact: Contact
+  company: Company
+  deal: Deal
+  lead: Lead
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Email {
+  id: ID!
+  subject: String!
+  body: String
+  direction: EmailDirection!
+  from: String
+  to: [String!]
+  cc: [String!]
+  bcc: [String!]
+  contact: Contact
+  deal: Deal
+  sentAt: DateTime
+  openedAt: DateTime
+  clickedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Document {
+  id: ID!
+  name: String!
+  description: String
+  contact: Contact
+  company: Company
+  deal: Deal
+  files: [File!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type File {
+  id: ID!
+  name: String!
+  mimeType: String
+  size: Int
+  url: String!
+  document: Document
+  uploadedBy: User!
+  createdAt: DateTime!
+}
+
+# ─── Users and Permissions ───────────────────────────────────────────────────
+
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  displayName: String
+  email: String!
+  phone: String
+  roles: [UserRole!]
+  territory: Territory
+  team: Team
+  active: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type UserRole {
+  id: ID!
+  user: User!
+  role: Role!
+  assignedAt: DateTime!
+}
+
+type Role {
+  id: ID!
+  name: String!
+  description: String
+  permissions: [Permission!]
+  users: [User!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Permission {
+  id: ID!
+  name: String!
+  resource: String!
+  action: String!
+  role: Role!
+}
+
+type Owner {
+  id: ID!
+  user: User!
+  displayName: String!
+  email: String!
+}
+
+type Team {
+  id: ID!
+  name: String!
+  description: String
+  members: [User!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Territory {
+  id: ID!
+  name: String!
+  description: String
+  users: [User!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Marketing and Sequences ─────────────────────────────────────────────────
+
+type List {
+  id: ID!
+  name: String!
+  description: String
+  contacts: [Contact!]
+  contactCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Segment {
+  id: ID!
+  name: String!
+  description: String
+  filters: [Filter!]
+  contacts: [Contact!]
+  contactCount: Int!
+  isDynamic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Audience {
+  id: ID!
+  name: String!
+  description: String
+  lists: [List!]
+  segments: [Segment!]
+  totalCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Campaign {
+  id: ID!
+  name: String!
+  subject: String
+  body: String
+  status: CampaignStatus!
+  audience: Audience
+  template: Template
+  scheduledAt: DateTime
+  sentAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Sequence {
+  id: ID!
+  name: String!
+  description: String
+  status: SequenceStatus!
+  steps: [SequenceStep!]!
+  contacts: [Contact!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SequenceStep {
+  id: ID!
+  sequence: Sequence!
+  position: Int!
+  type: ActivityType!
+  delayDays: Int!
+  template: Template
+  subject: String
+  body: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Template {
+  id: ID!
+  name: String!
+  subject: String
+  body: String!
+  type: ActivityType!
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Integrations ────────────────────────────────────────────────────────────
+
+type Webhook {
+  id: ID!
+  name: String!
+  url: String!
+  events: [String!]!
+  active: Boolean!
+  secret: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Filter {
+  id: ID!
+  field: String!
+  operator: String!
+  value: JSON
+  logic: String
+}
+
+type Search {
+  id: ID!
+  query: String!
+  entityType: String!
+  results: JSON
+  resultCount: Int!
+  executedAt: DateTime!
+}
+
+type EmailSync {
+  id: ID!
+  user: User!
+  provider: String!
+  email: String!
+  syncEnabled: Boolean!
+  lastSyncedAt: DateTime
+  createdAt: DateTime!
+}
+
+type CalendarSync {
+  id: ID!
+  user: User!
+  provider: String!
+  calendarId: String
+  syncEnabled: Boolean!
+  lastSyncedAt: DateTime
+  createdAt: DateTime!
+}
+
+type PhoneIntegration {
+  id: ID!
+  provider: String!
+  phoneNumber: String
+  active: Boolean!
+  settings: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ChatBot {
+  id: ID!
+  name: String!
+  description: String
+  active: Boolean!
+  flows: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Conversation {
+  id: ID!
+  contact: Contact
+  channel: String!
+  messages: [FreshchatMessage!]
+  assignedTo: User
+  status: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type FreshchatMessage {
+  id: ID!
+  conversation: Conversation!
+  sender: String!
+  body: String!
+  messageType: String!
+  sentAt: DateTime!
+}
+
+# ─── CPQ ─────────────────────────────────────────────────────────────────────
+
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  sku: String
+  unitPrice: Float!
+  currency: String
+  active: Boolean!
+  variants: [ProductVariant!]
+  taxes: [Tax!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ProductVariant {
+  id: ID!
+  product: Product!
+  name: String!
+  sku: String
+  unitPrice: Float!
+  attributes: JSON
+  active: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Tax {
+  id: ID!
+  name: String!
+  percentage: Float!
+  inclusive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Discount {
+  id: ID!
+  name: String!
+  type: String!
+  value: Float!
+  conditions: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Quote {
+  id: ID!
+  name: String!
+  deal: Deal!
+  contact: Contact
+  company: Company
+  lineItems: [DealProduct!]
+  status: QuoteStatus!
+  validUntil: DateTime
+  discount: Discount
+  taxAmount: Float
+  subTotal: Float!
+  total: Float!
+  terms: String
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Order {
+  id: ID!
+  quote: Quote
+  deal: Deal!
+  contact: Contact
+  company: Company
+  lineItems: [DealProduct!]
+  status: OrderStatus!
+  total: Float!
+  currency: String
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Invoice {
+  id: ID!
+  order: Order
+  deal: Deal
+  contact: Contact
+  company: Company
+  lineItems: [DealProduct!]
+  status: InvoiceStatus!
+  dueDate: DateTime
+  total: Float!
+  currency: String
+  payments: [Payment!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Payment {
+  id: ID!
+  invoice: Invoice!
+  amount: Float!
+  currency: String
+  method: String
+  transactionId: String
+  paidAt: DateTime!
+  createdAt: DateTime!
+}
+
+# ─── Freddy AI / Intelligence ────────────────────────────────────────────────
+
+type LeadScore {
+  id: ID!
+  lead: Lead!
+  score: Float!
+  grade: String
+  signals: [String!]
+  updatedAt: DateTime!
+}
+
+type ContactScore {
+  id: ID!
+  contact: Contact!
+  score: Float!
+  grade: String
+  signals: [String!]
+  updatedAt: DateTime!
+}
+
+type FreddyAI {
+  id: ID!
+  entityType: String!
+  entityId: ID!
+  insights: [String!]
+  recommendations: [String!]
+  updatedAt: DateTime!
+}
+
+type SmartMatch {
+  id: ID!
+  contact: Contact
+  lead: Lead
+  matchedCompany: Company
+  confidence: Float!
+  matchedAt: DateTime!
+}
+
+type Intent {
+  id: ID!
+  contact: Contact
+  signals: [String!]
+  intentScore: Float!
+  category: String
+  updatedAt: DateTime!
+}
+
+type ContextData {
+  id: ID!
+  entityType: String!
+  entityId: ID!
+  data: JSON!
+  source: String
+  capturedAt: DateTime!
+}
+
+# ─── Platform / Auth ─────────────────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  user: User!
+  token: String!
+  type: TokenType!
+  active: Boolean!
+  lastUsedAt: DateTime
+  createdAt: DateTime!
+}
+
+type OAuthToken {
+  id: ID!
+  user: User!
+  provider: String!
+  accessToken: String!
+  refreshToken: String
+  scopes: [String!]
+  expiresAt: DateTime
+  createdAt: DateTime!
+}
+
+type Report {
+  id: ID!
+  name: String!
+  description: String
+  type: String!
+  filters: [Filter!]
+  data: JSON
+  createdBy: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type FunnelReport {
+  id: ID!
+  name: String!
+  pipeline: Pipeline
+  stages: [DealStage!]
+  conversionRates: JSON
+  totalDeals: Int!
+  totalValue: Float!
+  dateRange: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Root Types ──────────────────────────────────────────────────────────────
+
+type Query {
+  contact(id: ID!): Contact
+  contacts(ownerId: ID, territoryId: ID, tags: [String!], limit: Int, offset: Int): [Contact!]!
+
+  company(id: ID!): Company
+  companies(ownerId: ID, industryId: ID, tags: [String!], limit: Int, offset: Int): [Company!]!
+
+  lead(id: ID!): Lead
+  leads(ownerId: ID, status: LeadStatus, limit: Int, offset: Int): [Lead!]!
+
+  deal(id: ID!): Deal
+  deals(pipelineId: ID, stageId: ID, ownerId: ID, status: DealStatus, limit: Int, offset: Int): [Deal!]!
+
+  pipeline(id: ID!): Pipeline
+  pipelines: [Pipeline!]!
+
+  task(id: ID!): Task
+  tasks(ownerId: ID, status: TaskStatus, limit: Int, offset: Int): [Task!]!
+
+  appointment(id: ID!): Appointment
+  appointments(ownerId: ID, status: AppointmentStatus, limit: Int, offset: Int): [Appointment!]!
+
+  product(id: ID!): Product
+  products(active: Boolean, limit: Int, offset: Int): [Product!]!
+
+  quote(id: ID!): Quote
+  quotes(dealId: ID, status: QuoteStatus, limit: Int, offset: Int): [Quote!]!
+
+  user(id: ID!): User
+  users(teamId: ID, roleId: ID, active: Boolean, limit: Int, offset: Int): [User!]!
+
+  sequence(id: ID!): Sequence
+  sequences(status: SequenceStatus, limit: Int, offset: Int): [Sequence!]!
+
+  report(id: ID!): Report
+  reports(limit: Int, offset: Int): [Report!]!
+
+  funnelReport(id: ID!): FunnelReport
+  search(query: String!, entityTypes: [String!]): Search!
+}
+
+type Mutation {
+  createContact(input: JSON!): Contact!
+  updateContact(id: ID!, input: JSON!): Contact!
+  deleteContact(id: ID!): Boolean!
+
+  createCompany(input: JSON!): Company!
+  updateCompany(id: ID!, input: JSON!): Company!
+  deleteCompany(id: ID!): Boolean!
+
+  createLead(input: JSON!): Lead!
+  updateLead(id: ID!, input: JSON!): Lead!
+  convertLead(id: ID!, input: JSON!): LeadConversion!
+  deleteLead(id: ID!): Boolean!
+
+  createDeal(input: JSON!): Deal!
+  updateDeal(id: ID!, input: JSON!): Deal!
+  deleteDeal(id: ID!): Boolean!
+
+  createTask(input: JSON!): Task!
+  updateTask(id: ID!, input: JSON!): Task!
+  deleteTask(id: ID!): Boolean!
+
+  createAppointment(input: JSON!): Appointment!
+  updateAppointment(id: ID!, input: JSON!): Appointment!
+  deleteAppointment(id: ID!): Boolean!
+
+  createNote(input: JSON!): Note!
+  updateNote(id: ID!, input: JSON!): Note!
+  deleteNote(id: ID!): Boolean!
+
+  createProduct(input: JSON!): Product!
+  updateProduct(id: ID!, input: JSON!): Product!
+  deleteProduct(id: ID!): Boolean!
+
+  createQuote(input: JSON!): Quote!
+  updateQuote(id: ID!, input: JSON!): Quote!
+  deleteQuote(id: ID!): Boolean!
+
+  createWebhook(input: JSON!): Webhook!
+  updateWebhook(id: ID!, input: JSON!): Webhook!
+  deleteWebhook(id: ID!): Boolean!
+}

@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/freshsales-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: |-
+    Token-based authentication header in the form
+    "Authorization: Token token=YOUR_API_KEY".
+  sources:
+  - openapi/freshsales-openapi.yml

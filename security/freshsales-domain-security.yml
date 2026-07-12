@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.freshworks.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 22 10:30:03 2026 GMT
+  hsts: null
+- host: developers.freshworks.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 28 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: <bundle-alias>.myfreshworks.com
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch,
+    certificate is not valid for ''<bundle-ali'
+  hsts: null
+domains:
+- domain: freshworks.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: myfreshworks.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -39,6 +39,8 @@ apis:
   - url: graphql/freshsales-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/freshsales-agentic-access.yml
 - type: TrustCenter
   url: security/freshsales-trust-center.yml
 - type: VulnerabilityDisclosure

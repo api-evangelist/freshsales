@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: Freshsales CRM Appointments Contacts API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)
+
+    REST API. Generated from public documentation; not an official spec.
+
+    '
+  contact:
+    name: Freshworks CRM Developer Portal
+    url: https://developers.freshworks.com/crm/api/
+servers:
+- url: https://{bundleAlias}.myfreshworks.com/crm/sales/api
+  description: Bundle-alias scoped base URL
+  variables:
+    bundleAlias:
+      default: example
+      description: Customer bundle alias (subdomain)
+security:
+- tokenAuth: []
+tags:
+- name: Contacts
+paths:
+  /contacts:
+    post:
+      tags:
+      - Contacts
+      operationId: createContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '201':
+          $ref: '#/components/responses/Ok'
+  /contacts/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+      - Contacts
+      operationId: getContact
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+    put:
+      tags:
+      - Contacts
+      operationId: updateContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+    delete:
+      tags:
+      - Contacts
+      operationId: deleteContact
+      responses:
+        '204':
+          description: No Content
+  /contacts/view/{view_id}:
+    parameters:
+    - in: path
+      name: view_id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Contacts
+      operationId: listContactsByView
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+  /contacts/upsert:
+    post:
+      tags:
+      - Contacts
+      operationId: upsertContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+  /contacts/bulk_upsert:
+    post:
+      tags:
+      - Contacts
+      operationId: bulkUpsertContacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '202':
+          $ref: '#/components/responses/Ok'
+  /contacts/bulk_destroy:
+    post:
+      tags:
+      - Contacts
+      operationId: bulkDestroyContacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '202':
+          $ref: '#/components/responses/Ok'
+  /contacts/{id}/activities:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+      - Contacts
+      operationId: listContactActivities
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+components:
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Object'
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication header in the form
+
+        "Authorization: Token token=YOUR_API_KEY".
+
+        '

@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Freshsales CRM Appointments SalesActivities API
+  version: '2026-05-23'
+  description: 'Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)
+
+    REST API. Generated from public documentation; not an official spec.
+
+    '
+  contact:
+    name: Freshworks CRM Developer Portal
+    url: https://developers.freshworks.com/crm/api/
+servers:
+- url: https://{bundleAlias}.myfreshworks.com/crm/sales/api
+  description: Bundle-alias scoped base URL
+  variables:
+    bundleAlias:
+      default: example
+      description: Customer bundle alias (subdomain)
+security:
+- tokenAuth: []
+tags:
+- name: SalesActivities
+paths:
+  /sales_activities:
+    post:
+      tags:
+      - SalesActivities
+      operationId: createSalesActivity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '201':
+          $ref: '#/components/responses/Ok'
+components:
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Object'
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Token-based authentication header in the form
+
+        "Authorization: Token token=YOUR_API_KEY".
+
+        '

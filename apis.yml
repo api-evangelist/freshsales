@@ -6,7 +6,19 @@ description: Freshsales is the CRM application from Freshworks designed for sale
   API enables CRUD access to contacts, accounts, deals, tasks, appointments, notes,
   and products for building integrations and sales workflow automation.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/freshsales.png
 tags:
 - CRM
 - Sales
@@ -22,9 +34,10 @@ specificationVersion: '0.19'
 apis:
 - aid: freshsales:crm-api
   name: Freshsales CRM API
-  description: REST API for managing contacts, sales accounts, deals, tasks, appointments,
-    notes, and CPQ products in Freshsales. Authentication uses a token-based scheme
-    via the Authorization header tied to a bundle alias-specific subdomain.
+  description: >-
+    REST API for managing contacts, sales accounts, deals, tasks, appointments, notes, and CPQ products
+    in Freshsales. Authentication uses a token-based scheme via the Authorization header tied to a bundle
+    alias-specific subdomain.
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
@@ -38,6 +51,126 @@ apis:
     url: https://developers.freshworks.com/crm/api/
   - url: graphql/freshsales-graphql.md
     type: GraphQL
+- aid: freshsales:freshsales-appointments-api
+  name: Freshsales Appointments API
+  description: The Appointments API from Freshsales — 2 operation(s) for appointments.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-appointments-api-openapi.yml
+- aid: freshsales:freshsales-calls-api
+  name: Freshsales Calls API
+  description: The Calls API from Freshsales — 1 operation(s) for calls.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-calls-api-openapi.yml
+- aid: freshsales:freshsales-contacts-api
+  name: Freshsales Contacts API
+  description: The Contacts API from Freshsales — 7 operation(s) for contacts.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-contacts-api-openapi.yml
+- aid: freshsales:freshsales-deals-api
+  name: Freshsales Deals API
+  description: The Deals API from Freshsales — 3 operation(s) for deals.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Deals
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-deals-api-openapi.yml
+- aid: freshsales:freshsales-jobs-api
+  name: Freshsales Jobs API
+  description: The Jobs API from Freshsales — 1 operation(s) for jobs.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-jobs-api-openapi.yml
+- aid: freshsales:freshsales-lists-api
+  name: Freshsales Lists API
+  description: The Lists API from Freshsales — 2 operation(s) for lists.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-lists-api-openapi.yml
+- aid: freshsales:freshsales-notes-api
+  name: Freshsales Notes API
+  description: The Notes API from Freshsales — 2 operation(s) for notes.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-notes-api-openapi.yml
+- aid: freshsales:freshsales-products-api
+  name: Freshsales Products API
+  description: The Products API from Freshsales — 2 operation(s) for products.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-products-api-openapi.yml
+- aid: freshsales:freshsales-salesaccounts-api
+  name: Freshsales SalesAccounts API
+  description: The SalesAccounts API from Freshsales — 3 operation(s) for salesaccounts.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - SalesAccounts
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-salesaccounts-api-openapi.yml
+- aid: freshsales:freshsales-salesactivities-api
+  name: Freshsales SalesActivities API
+  description: The SalesActivities API from Freshsales — 1 operation(s) for salesactivities.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - SalesActivities
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-salesactivities-api-openapi.yml
+- aid: freshsales:freshsales-search-api
+  name: Freshsales Search API
+  description: The Search API from Freshsales — 1 operation(s) for search.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-search-api-openapi.yml
+- aid: freshsales:freshsales-tasks-api
+  name: Freshsales Tasks API
+  description: The Tasks API from Freshsales — 2 operation(s) for tasks.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-tasks-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/freshsales-agentic-access.yml

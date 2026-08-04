@@ -1,0 +1,36 @@
+{
+  "provider": "freshsales",
+  "sources": [
+    "freshsales-appointments-api-openapi.yml",
+    "freshsales-calls-api-openapi.yml",
+    "freshsales-contacts-api-openapi.yml",
+    "freshsales-deals-api-openapi.yml",
+    "freshsales-jobs-api-openapi.yml",
+    "freshsales-lists-api-openapi.yml",
+    "freshsales-notes-api-openapi.yml",
+    "freshsales-products-api-openapi.yml",
+    "freshsales-salesaccounts-api-openapi.yml",
+    "freshsales-salesactivities-api-openapi.yml",
+    "freshsales-search-api-openapi.yml",
+    "freshsales-tasks-api-openapi.yml"
+  ],
+  "outputs": [
+    "freshsales-appointments-api-openapi.yml",
+    "freshsales-calls-api-openapi.yml",
+    "freshsales-contacts-api-openapi.yml",
+    "freshsales-deals-api-openapi.yml",
+    "freshsales-jobs-api-openapi.yml",
+    "freshsales-lists-api-openapi.yml",
+    "freshsales-notes-api-openapi.yml",
+    "freshsales-products-api-openapi.yml",
+    "freshsales-salesaccounts-api-openapi.yml",
+    "freshsales-salesactivities-api-openapi.yml",
+    "freshsales-search-api-openapi.yml",
+    "freshsales-tasks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

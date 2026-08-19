@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "4dd7004f-3ab0-47d1-9566-eb5b9f373d59",
+      "name": "SalesActivities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd67a17c-4e20-45b0-8b6c-267f598e7b7d",
+          "name": "create Sales Activity",
+          "request": {
+            "name": "create Sales Activity",
+            "description": {},
+            "url": {
+              "path": [
+                "sales_activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Customer bundle alias (subdomain)",
+                  "type": "any",
+                  "value": "{{bundleAlias}}",
+                  "key": "bundleAlias"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 7016,\n  \"key_1\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3a51b94-2390-4d36-bb94-4af80377d2c9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Customer bundle alias (subdomain)",
+                      "type": "any",
+                      "value": "{{bundleAlias}}",
+                      "key": "bundleAlias"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 5597.814801154892,\n  \"key_1\": 1969,\n  \"key_2\": \"string\",\n  \"key_3\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 5597.814801154892,\n  \"key_1\": 1969,\n  \"key_2\": \"string\",\n  \"key_3\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Customer bundle alias (subdomain)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example",
+      "key": "bundleAlias"
+    },
+    {
+      "type": "string",
+      "value": "https://{{bundleAlias}}.myfreshworks.com/crm/sales/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3acb7e08-8cac-4db7-851d-a3fd78ea28ab",
+    "name": "Freshsales CRM Appointments SalesActivities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)\nREST API. Generated from public documentation; not an official spec.\n\n\nContact Support:\n Name: Freshworks CRM Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

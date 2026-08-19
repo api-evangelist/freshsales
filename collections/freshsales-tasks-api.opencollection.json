@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Freshsales CRM Appointments Tasks API",
+    "version": "2026-05-23"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listTasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{bundleAlias}.myfreshworks.com/crm/sales/api/tasks"
+          }
+        },
+        {
+          "info": {
+            "name": "createTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{bundleAlias}.myfreshworks.com/crm/sales/api/tasks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{bundleAlias}.myfreshworks.com/crm/sales/api/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{bundleAlias}.myfreshworks.com/crm/sales/api/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTask",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{bundleAlias}.myfreshworks.com/crm/sales/api/tasks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

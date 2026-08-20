@@ -44,6 +44,12 @@ apis:
   - CRM
   - Contacts
   - Deals
+  - Account
+  - Task
+  tags_raw:
+  - CRM
+  - Contacts
+  - Deals
   - Accounts
   - Tasks
   properties:
@@ -97,6 +103,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -107,6 +115,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -127,6 +137,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -147,6 +159,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - Sales Activities
+  tags_raw:
   - SalesActivities
   properties:
   - type: OpenAPI
@@ -167,6 +181,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI

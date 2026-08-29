@@ -6,6 +6,18 @@ description: Freshsales is the CRM application from Freshworks designed for sale
   API enables CRUD access to contacts, accounts, deals, tasks, appointments, notes,
   and products for building integrations and sales workflow automation.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve

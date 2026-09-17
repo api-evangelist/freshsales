@@ -1,12 +1,10 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Freshsales CRM Appointments API
   version: '2026-05-23'
   description: 'Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)
 
-    REST API. Generated from public documentation; not an official spec.
-
-    '
+    REST API. Generated from public documentation; not an official spec.'
   contact:
     name: Freshworks CRM Developer Portal
     url: https://developers.freshworks.com/crm/api/
@@ -30,6 +28,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: List appointments
+      x-summary-source: derived
     post:
       tags:
       - Appointments
@@ -43,6 +43,8 @@ paths:
       responses:
         '201':
           $ref: '#/components/responses/Ok'
+      summary: Create appointment
+      x-summary-source: derived
   /appointments/{id}:
     parameters:
     - $ref: '#/components/parameters/Id'
@@ -53,6 +55,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Get appointment
+      x-summary-source: derived
     put:
       tags:
       - Appointments
@@ -66,6 +70,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Update appointment
+      x-summary-source: derived
     delete:
       tags:
       - Appointments
@@ -73,14 +79,9 @@ paths:
       responses:
         '204':
           description: No Content
+      summary: Delete appointment
+      x-summary-source: derived
 components:
-  responses:
-    Ok:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Object'
   parameters:
     Id:
       in: path
@@ -92,6 +93,13 @@ components:
     Object:
       type: object
       additionalProperties: true
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Object'
   securitySchemes:
     tokenAuth:
       type: apiKey

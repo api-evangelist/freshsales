@@ -1,18 +1,7 @@
 {
   "provider": "freshsales",
   "sources": [
-    "freshsales-appointments-api-openapi.yml",
-    "freshsales-calls-api-openapi.yml",
-    "freshsales-contacts-api-openapi.yml",
-    "freshsales-deals-api-openapi.yml",
-    "freshsales-jobs-api-openapi.yml",
-    "freshsales-lists-api-openapi.yml",
-    "freshsales-notes-api-openapi.yml",
-    "freshsales-products-api-openapi.yml",
-    "freshsales-salesaccounts-api-openapi.yml",
-    "freshsales-salesactivities-api-openapi.yml",
-    "freshsales-search-api-openapi.yml",
-    "freshsales-tasks-api-openapi.yml"
+    "_original/freshsales-openapi.yml"
   ],
   "outputs": [
     "freshsales-appointments-api-openapi.yml",
@@ -28,9 +17,29 @@
     "freshsales-search-api-openapi.yml",
     "freshsales-tasks-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "freshsales-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: freshsales-sales-accounts-api-openapi.yml, freshsales-sales-activities-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 13 total)"
+  ],
+  "skipped": [
+    "freshsales-appointments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-calls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-deals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-lists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-notes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-sales-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-sales-activities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "freshsales-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

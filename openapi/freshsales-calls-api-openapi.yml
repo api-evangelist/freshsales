@@ -1,12 +1,10 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Freshsales CRM Appointments Calls API
+  title: Freshsales CRM Calls API
   version: '2026-05-23'
   description: 'Best-effort OpenAPI 3.1 description of the Freshsales (Freshworks CRM)
 
-    REST API. Generated from public documentation; not an official spec.
-
-    '
+    REST API. Generated from public documentation; not an official spec.'
   contact:
     name: Freshworks CRM Developer Portal
     url: https://developers.freshworks.com/crm/api/
@@ -36,6 +34,8 @@ paths:
       responses:
         '201':
           $ref: '#/components/responses/Ok'
+      summary: Log phone call
+      x-summary-source: derived
 components:
   responses:
     Ok:

@@ -37,6 +37,14 @@ tags:
 - Sales
 - Contacts
 - Deals
+- Pipelines
+- Lead Management
+- Freshworks
+tags_raw:
+- CRM
+- Sales
+- Contacts
+- Deals
 - Pipeline
 - Lead Management
 - Freshworks
@@ -184,6 +192,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - SalesAccounts
+  tags_raw:
   - Sales Accounts
   properties:
   - type: OpenAPI
@@ -228,3 +238,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-parent: freshworks
+x-relationship: product

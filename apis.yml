@@ -156,28 +156,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/freshsales-products-api-openapi.yml
-- aid: freshsales:freshsales-salesaccounts-api
-  name: Freshsales SalesAccounts API
-  description: The SalesAccounts API from Freshsales — 3 operation(s) for salesaccounts.
-  humanURL: https://developers.freshworks.com/crm/api/
-  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
-  tags:
-  - SalesAccounts
-  properties:
-  - type: OpenAPI
-    url: openapi/freshsales-salesaccounts-api-openapi.yml
-- aid: freshsales:freshsales-salesactivities-api
-  name: Freshsales SalesActivities API
-  description: The SalesActivities API from Freshsales — 1 operation(s) for salesactivities.
-  humanURL: https://developers.freshworks.com/crm/api/
-  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
-  tags:
-  - Sales Activities
-  tags_raw:
-  - SalesActivities
-  properties:
-  - type: OpenAPI
-    url: openapi/freshsales-salesactivities-api-openapi.yml
 - aid: freshsales:freshsales-search-api
   name: Freshsales Search API
   description: The Search API from Freshsales — 1 operation(s) for search.
@@ -200,6 +178,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/freshsales-tasks-api-openapi.yml
+- aid: freshsales:freshsales-sales-accounts-api
+  name: Freshsales Sales Accounts API
+  description: The Sales Accounts API from Freshsales — 3 operation(s) for sales accounts.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Sales Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-sales-accounts-api-openapi.yml
+- aid: freshsales:freshsales-sales-activities-api
+  name: Freshsales Sales Activities API
+  description: The Sales Activities API from Freshsales — 1 operation(s) for sales activities.
+  humanURL: https://developers.freshworks.com/crm/api/
+  baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
+  tags:
+  - Sales Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/freshsales-sales-activities-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/freshsales-agentic-access.yml

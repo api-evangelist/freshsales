@@ -76,8 +76,6 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.freshworks.com/crm/api/
-  - url: graphql/freshsales-graphql.md
-    type: GraphQL
 - aid: freshsales:freshsales-appointments-api
   name: Freshsales Appointments API
   description: The Appointments API from Freshsales — 2 operation(s) for appointments.

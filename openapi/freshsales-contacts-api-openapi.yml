@@ -149,13 +149,6 @@ paths:
       summary: List contact activities
       x-summary-source: derived
 components:
-  parameters:
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   responses:
     Ok:
       description: Successful response
@@ -163,6 +156,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Object'
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   schemas:
     Object:
       type: object

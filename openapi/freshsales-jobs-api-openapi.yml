@@ -33,10 +33,6 @@ paths:
       summary: Get job status
       x-summary-source: derived
 components:
-  schemas:
-    Object:
-      type: object
-      additionalProperties: true
   responses:
     Ok:
       description: Successful response
@@ -51,6 +47,10 @@ components:
       required: true
       schema:
         type: string
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
   securitySchemes:
     tokenAuth:
       type: apiKey

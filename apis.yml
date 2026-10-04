@@ -190,6 +190,8 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
+  - SalesAccounts
+  tags_raw:
   - Sales Accounts
   properties:
   - type: OpenAPI
@@ -205,6 +207,9 @@ apis:
   - type: OpenAPI
     url: openapi/freshsales-sales-activities-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/freshsales-capability-edges.yml
+  name: Freshsales Business Capability Map
 - type: AgenticAccess
   url: agentic-access/freshsales-agentic-access.yml
 - type: TrustCenter

@@ -190,8 +190,6 @@ apis:
   humanURL: https://developers.freshworks.com/crm/api/
   baseURL: https://<bundle-alias>.myfreshworks.com/crm/sales/api
   tags:
-  - SalesAccounts
-  tags_raw:
   - Sales Accounts
   properties:
   - type: OpenAPI

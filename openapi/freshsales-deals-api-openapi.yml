@@ -89,13 +89,6 @@ paths:
       summary: List deals by view
       x-summary-source: derived
 components:
-  responses:
-    Ok:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Object'
   parameters:
     Id:
       in: path
@@ -107,6 +100,13 @@ components:
     Object:
       type: object
       additionalProperties: true
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Object'
   securitySchemes:
     tokenAuth:
       type: apiKey

@@ -1,4 +1,4 @@
-# Freshsales (freshsales)
+# Freshsales
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,130 @@
 
 Freshsales is the CRM application from Freshworks designed for sales teams, offering contact and account management, deal pipelines, AI-powered lead scoring, built-in phone and email, sales sequences, and CPQ. The Freshsales REST API enables CRUD access to contacts, accounts, deals, tasks, appointments, notes, and products for building integrations and sales workflow automation.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/freshsales/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/freshsales/refs/heads/main/apis.yml)
+**Areas:** CRM · Sales · Contacts · Deals · Pipelines · Lead Management · Freshworks
 
-## Scope
+## Freshsales on APIs.io
 
-- **Type:** Index
+Everything profiled for Freshsales is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/freshsales/](https://apis.io/providers/freshsales/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- CRM
-- Sales
-- Contacts
-- Deals
-- Pipeline
-- Lead Management
-- Freshworks
+- [Freshsales CRM API](https://apis.io/apis/freshsales/crm-api/) — REST API for managing contacts, sales accounts, deals, tasks, appointments, notes, and CPQ products in Freshsales. Authentication uses a token-based scheme…
+- [Freshsales Appointments API](https://apis.io/apis/freshsales/freshsales-appointments-api/) — The Appointments API from Freshsales — 2 operation(s) for appointments.
+- [Freshsales Calls API](https://apis.io/apis/freshsales/freshsales-calls-api/) — The Calls API from Freshsales — 1 operation(s) for calls.
+- [Freshsales Contacts API](https://apis.io/apis/freshsales/freshsales-contacts-api/) — The Contacts API from Freshsales — 7 operation(s) for contacts.
+- [Freshsales Deals API](https://apis.io/apis/freshsales/freshsales-deals-api/) — The Deals API from Freshsales — 3 operation(s) for deals.
+- [Freshsales Jobs API](https://apis.io/apis/freshsales/freshsales-jobs-api/) — The Jobs API from Freshsales — 1 operation(s) for jobs.
+- [Freshsales Lists API](https://apis.io/apis/freshsales/freshsales-lists-api/) — The Lists API from Freshsales — 2 operation(s) for lists.
+- [Freshsales Notes API](https://apis.io/apis/freshsales/freshsales-notes-api/) — The Notes API from Freshsales — 2 operation(s) for notes.
+- [Freshsales Products API](https://apis.io/apis/freshsales/freshsales-products-api/) — The Products API from Freshsales — 2 operation(s) for products.
+- [Freshsales Search API](https://apis.io/apis/freshsales/freshsales-search-api/) — The Search API from Freshsales — 1 operation(s) for search.
+- [Freshsales Tasks API](https://apis.io/apis/freshsales/freshsales-tasks-api/) — The Tasks API from Freshsales — 2 operation(s) for tasks.
+- [Freshsales Sales Accounts API](https://apis.io/apis/freshsales/freshsales-sales-accounts-api/) — The Sales Accounts API from Freshsales — 3 operation(s) for sales accounts.
+- [Freshsales Sales Activities API](https://apis.io/apis/freshsales/freshsales-sales-activities-api/) — The Sales Activities API from Freshsales — 1 operation(s) for sales activities.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Freshsales CRM API
+GraphQL schemas.
 
-REST API for managing contacts, sales accounts, deals, tasks, appointments, notes, and CPQ products in Freshsales. Authentication uses a token-based scheme via the Authorization header tied to a bundle alias-specific subdomain.
+- [Moved to /providers/freshsales/](https://apis.io/graphqls/freshsales/freshsales-graphql/)
 
-- **Human URL:** [https://developers.freshworks.com/crm/api/](https://developers.freshworks.com/crm/api/)
-- **Base URL:** `https://<bundle-alias>.myfreshworks.com/crm/sales/api`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- CRM
-- Contacts
-- Deals
-- Accounts
-- Tasks
+- [Freshsales Agentic Access](https://apis.io/agentic-access/freshsales/freshsales-agentic-access/)
 
-#### Properties
+#### Collections (13)
 
-- [Documentation](https://developers.freshworks.com/crm/api/)
-- [Postman Collection](collections/freshsales.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/freshsales.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Freshsales CRM API](https://apis.io/collections/freshsales/open-freshsales/)
+- [Freshsales CRM Appointments API](https://apis.io/collections/freshsales/open-freshsales-appointments-api/)
+- [Freshsales CRM Appointments Calls API](https://apis.io/collections/freshsales/open-freshsales-calls-api/)
+- [Freshsales CRM Appointments Contacts API](https://apis.io/collections/freshsales/open-freshsales-contacts-api/)
+- [Freshsales CRM Appointments Deals API](https://apis.io/collections/freshsales/open-freshsales-deals-api/)
+- [Freshsales CRM Appointments Jobs API](https://apis.io/collections/freshsales/open-freshsales-jobs-api/)
+- [Freshsales CRM Appointments Lists API](https://apis.io/collections/freshsales/open-freshsales-lists-api/)
+- [Freshsales CRM Appointments Notes API](https://apis.io/collections/freshsales/open-freshsales-notes-api/)
+- [Freshsales CRM Appointments Products API](https://apis.io/collections/freshsales/open-freshsales-products-api/)
+- [Freshsales CRM Appointments SalesAccounts API](https://apis.io/collections/freshsales/open-freshsales-salesaccounts-api/)
+- [Freshsales CRM Appointments SalesActivities API](https://apis.io/collections/freshsales/open-freshsales-salesactivities-api/)
+- [Freshsales CRM Appointments Search API](https://apis.io/collections/freshsales/open-freshsales-search-api/)
+- [Freshsales CRM Appointments Tasks API](https://apis.io/collections/freshsales/open-freshsales-tasks-api/)
 
-- [GitHub Organization](https://github.com/freshworks)
-- [LinkedIn](https://www.linkedin.com/company/freshsales-crm)
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Freshsales Authentication](https://apis.io/security/freshsales/freshsales-authentication/)
+- [Freshsales Domain Security](https://apis.io/security/freshsales/freshsales-domain-security/)
+- [Freshsales Trust Center](https://apis.io/security/freshsales/freshsales-trust-center/)
+- [Freshsales Vulnerability Disclosure](https://apis.io/security/freshsales/freshsales-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.freshworks.com/crm/sales/)
-- [Developer  Portal](https://developers.freshworks.com/crm/api/)
 - [Documentation](https://developers.freshworks.com/crm/api/)
-- [Sign Up](https://www.freshworks.com/crm/sales/signup/)
 - [Pricing](https://www.freshworks.com/crm/sales/pricing/)
 - [Support](https://support.freshsales.io/)
+- [GitHub](https://github.com/freshworks)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/freshsales/](https://apis.io/providers/freshsales/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Freshsales: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/freshsales/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
